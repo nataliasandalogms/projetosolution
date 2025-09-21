@@ -1,0 +1,40 @@
+# Arquivos do macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Pastas de build do .NET
+bin/
+obj/
+.vs/
+
+# Arquivos de usuário
+*.user
+*.userprefs
+
+# Docker
+.dockerignore
+Dockerfile*
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# NuGet
+.nuget/
+nuget.exe
+*.nupkg
+
+# Logs e temp
+logs/
+*.log
+*.tmp
+*.temp
+
+# Exceptions
+*.swp
+*.swo
+*~
