@@ -1,0 +1,22 @@
+# Estágio de build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+
+# Copia o arquivo de projeto e restaura as dependências
+COPY *.csproj .
+RUN dotnet restore
+
+# Copia todo o código e faz o build
+COPY . .
+RUN dotnet publish -c release -o /app
+
+# Estágio final (imagem menor)
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /app
+COPY --from=build /app .
+
+# Expõe a porta
+EXPOSE 8080
+
+# Comando para executar
+ENTRYPOINT ["dotnet", "ProjetoSolution.API.dll"]
